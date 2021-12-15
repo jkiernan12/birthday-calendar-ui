@@ -1,6 +1,7 @@
 import './App.css';
 import { Component } from 'react';
 import { months } from '../../months_data';
+import Month from '../Month/Month';
 
 class App extends Component {
   constructor() {
@@ -32,10 +33,7 @@ class App extends Component {
       </div>
       <div className='bday-container'>
       {this.state.months.map(month => {
-        return <h2 key={month.id}>{month.name}</h2>
-      })}
-      {this.state.staff.map(person => {
-        return <h3 key={person.id}>{person.name}</h3>
+        return <Month name={month.name} key={month.id} staff={this.filterByMonth(month.id)} />
       })}
       </div>
     </div>
