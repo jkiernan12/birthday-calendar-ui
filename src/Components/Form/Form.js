@@ -10,15 +10,19 @@ class Form extends Component {
     }
   }
 
+  updateValue = (e) => {
+    this.setState({[e.target.id]: e.target.value})
+  }
+
   render() {
     return (
     <form>
-      <label htmlFor='nameInput'>Name:</label>
-      <input id='nameInput' type='text' />
-      <label htmlFor='monthInput'>Month:</label>
-      <input id='monthInput' type='number' />
-      <label htmlFor='dayInput'>Day:</label>
-      <input id='dayInput' type='number' />
+      <label htmlFor='nameValue'>Name:</label>
+      <input id='nameValue' type='text' onChange={this.updateValue}/>
+      <label htmlFor='monthValue' >Month:</label>
+      <input id='monthValue' type='number' onChange={this.updateValue} />
+      <label htmlFor='dayValue'>Day:</label>
+      <input id='dayValue' type='number' onChange={this.updateValue} />
       <button type="submit">Submit</button>
     </form>
     )
