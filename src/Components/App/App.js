@@ -19,20 +19,38 @@ class App extends Component {
     .then(data => this.setState({staff: data}))
   }
 
+  componentDidUpdate() {
+    fetch('http://localhost:3001/api/v1/birthdays')
+    .then(res => res.json())
+    .then(data => this.setState({staff: data}))
+  }
+
   filterByMonth(monthID) {
     return this.state.staff.filter(person => {
       return person.month === monthID;
     })
   }
 
+  postBirthday(newData) {
+    fetch('http://localhost:3001/api/v1/birthdays', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(newData)
+    }).then(((req, res) => {
+      if (res.ok) {
+        console.log('Success!');
+        this.setState({staff: this.state.staff})
+      } else {
+        console.log('ERROR (PS I would do proper error handling if I had more time)')
+      }
+    })).catch(err => console.log(err))
+  }
+
   addBirthday = ({dayValue, monthValue, nameValue}) => {
     const day = Number(dayValue);
     const month = Number(monthValue);
     const name = nameValue;
-    const id = this.state.staff.length + 1;
-    const newStaff = { day, month, name, id}
-    this.state.staff.push(newStaff)
-    this.setState({staff: this.state.staff})
+    const newStaff = { day, month, name}
+    this.postBirthday(newStaff)
   }
 
   render() {
