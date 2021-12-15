@@ -33,7 +33,10 @@ class App extends Component {
       </div>
       <div className='bday-container'>
       {this.state.months.map(month => {
-        return <Month name={month.name} key={month.id} staff={this.filterByMonth(month.id)} />
+        return <Month 
+        name={month.name} 
+        key={month.id} 
+        staff={this.filterByMonth(month.id)} />
       })}
       </div>
     </div>
