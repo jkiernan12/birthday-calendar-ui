@@ -19,12 +19,6 @@ class App extends Component {
     .then(data => this.setState({staff: data}))
   }
 
-  componentDidUpdate() {
-    fetch('http://localhost:3001/api/v1/birthdays')
-    .then(res => res.json())
-    .then(data => this.setState({staff: data}))
-  }
-
   filterByMonth(monthID) {
     return this.state.staff.filter(person => {
       return person.month === monthID;
@@ -38,7 +32,6 @@ class App extends Component {
     }).then(((req, res) => {
       if (res.ok) {
         console.log('Success!');
-        this.setState({staff: this.state.staff})
       } else {
         console.log('ERROR (PS I would do proper error handling if I had more time)')
       }
