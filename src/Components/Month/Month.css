@@ -1,0 +1,10 @@
+.month-container {
+  background-color: white;
+  border: 5px solid black;
+  min-height: 170px;
+}
+
+.month-name {
+  color: #D077E7;
+  text-align: center;
+}

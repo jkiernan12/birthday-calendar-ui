@@ -1,4 +1,5 @@
 import { Component } from "react";
+import './Form.css';
 
 class Form extends Component {
   constructor() {
@@ -31,13 +32,19 @@ class Form extends Component {
   render() {
     return (
     <form>
-      <label htmlFor='nameValue'>Name:</label>
-      <input id='nameValue' type='text' value={this.state.nameValue} onChange={this.updateValue}/>
-      <label htmlFor='monthValue' >Month:</label>
-      <input id='monthValue' type='number' value={this.state.monthValue} onChange={this.updateValue} />
-      <label htmlFor='dayValue'>Day:</label>
-      <input id='dayValue' type='number' value={this.state.dayValue} onChange={this.updateValue} />
-      <button type="submit" onClick={this.createBirthday}>Add this birthday!</button>
+      <div className="input-container">
+        <label htmlFor='nameValue'>Name:</label>
+        <input id='nameValue' type='text' value={this.state.nameValue} onChange={this.updateValue}/>
+      </div>
+      <div className="input-container">
+        <label htmlFor='monthValue' >Month:</label>
+        <input id='monthValue' type='number' value={this.state.monthValue} onChange={this.updateValue} />
+      </div>
+      <div className="input-container">
+        <label htmlFor='dayValue'>Day:</label>
+        <input id='dayValue' type='number' value={this.state.dayValue} onChange={this.updateValue} />
+      </div>
+      <button className="submit-button" type="submit" onClick={this.createBirthday}>Add this birthday!</button>
     </form>
     )
   }

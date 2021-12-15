@@ -1,0 +1,23 @@
+form {
+  background-color: white;
+  border: 5px solid black;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 10px 0;
+}
+
+.input-container {
+  display: flex;
+  flex-direction: column;
+  margin: 10px;
+}
+
+.submit-button {
+  background-color: #5DE1E6;
+  color: white;
+  border: none;
+  border-radius: 20px;
+  padding: 10px;
+  margin: 10px;
+}

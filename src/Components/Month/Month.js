@@ -1,9 +1,10 @@
 import Person from "../Person/Person";
+import './Month.css';
 
 const Month = (props) => {
   return (
-    <article>
-      <h2>{props.name}</h2>
+    <article className="month-container">
+      <h3 className="month-name">{props.name}</h3>
       {props.staff.map(person => {
         return (
           <Person 

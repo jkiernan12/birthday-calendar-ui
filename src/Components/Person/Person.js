@@ -1,6 +1,8 @@
+import './Person.css'
+
 const Person = ({id, name, month, day}) => {
   return(
-    <p key={id}>{name}: {month}/{day}</p>
+    <p className="person" key={id}>{name}: {month}/{day}</p>
   )
 }
 
