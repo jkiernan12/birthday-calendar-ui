@@ -2,6 +2,7 @@ import './App.css';
 import { Component } from 'react';
 import { months } from '../../months_data';
 import Month from '../Month/Month';
+import Form from '../Form/Form';
 
 class App extends Component {
   constructor() {
@@ -29,7 +30,7 @@ class App extends Component {
       <div className="App">
       <h1>Birthdays</h1>
       <div className='bday-form'>
-
+      <Form />
       </div>
       <div className='bday-container'>
       {this.state.months.map(month => {
