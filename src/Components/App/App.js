@@ -25,12 +25,22 @@ class App extends Component {
     })
   }
 
+  addBirthday = ({dayValue, monthValue, nameValue}) => {
+    const day = Number(dayValue);
+    const month = Number(monthValue);
+    const name = nameValue;
+    const id = this.state.staff.length + 1;
+    const newStaff = { day, month, name, id}
+    this.state.staff.push(newStaff)
+    this.setState({staff: this.state.staff})
+  }
+
   render() {
     return (
       <div className="App">
       <h1>Birthdays</h1>
       <div className='bday-form'>
-      <Form />
+      <Form addBirthday={this.addBirthday}/>
       </div>
       <div className='bday-container'>
       {this.state.months.map(month => {

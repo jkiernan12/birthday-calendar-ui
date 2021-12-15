@@ -10,8 +10,22 @@ class Form extends Component {
     }
   }
 
+  resetState() {
+    this.setState({
+      nameValue: '',
+      monthValue: '',
+      dayValue: ''
+    })
+  }
+
   updateValue = (e) => {
     this.setState({[e.target.id]: e.target.value})
+  }
+
+  createBirthday = (e) => {
+    e.preventDefault();
+    this.props.addBirthday(this.state);
+    this.resetState();
   }
 
   render() {
@@ -23,7 +37,7 @@ class Form extends Component {
       <input id='monthValue' type='number' onChange={this.updateValue} />
       <label htmlFor='dayValue'>Day:</label>
       <input id='dayValue' type='number' onChange={this.updateValue} />
-      <button type="submit">Submit</button>
+      <button type="submit" onClick={this.createBirthday}>Add this birthday!</button>
     </form>
     )
   }
