@@ -17,6 +17,12 @@ class App extends Component {
     .then(data => this.setState({staff: data}))
   }
 
+  filterByMonth(monthID) {
+    return this.state.staff.filter(person => {
+      return person.month === monthID;
+    })
+  }
+
   render() {
     return (
       <div className="App">
